@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Construction Diary</string>
+    <string name="tab_projects">Projects</string>
+    <string name="tab_expenses">Expenses</string>
+    <string name="tab_reports">Reports</string>
+    <string name="tab_settings">Settings</string>
+    <string name="action_back">Back</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_add">Add</string>
+    <string name="action_ok">OK</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_close">Close</string>
+    <string name="action_share">Share</string>
+    <string name="action_search">Search</string>
+    <string name="coming_soon">This section is coming soon.</string>
 </resources>

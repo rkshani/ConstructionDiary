@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">کنسٹرکشن ڈائری</string>
+    <string name="tab_projects">پروجیکٹس</string>
+    <string name="tab_expenses">اخراجات</string>
+    <string name="tab_reports">رپورٹس</string>
+    <string name="tab_settings">ترتیبات</string>
+    <string name="action_back">واپس</string>
+    <string name="action_save">محفوظ کریں</string>
+    <string name="action_cancel">منسوخ</string>
+    <string name="action_delete">حذف کریں</string>
+    <string name="action_edit">ترمیم</string>
+    <string name="action_add">شامل کریں</string>
+    <string name="action_ok">ٹھیک ہے</string>
+    <string name="action_clear">صاف کریں</string>
+    <string name="action_close">بند کریں</string>
+    <string name="action_share">شیئر کریں</string>
+    <string name="action_search">تلاش</string>
+    <string name="coming_soon">یہ حصہ جلد آ رہا ہے۔</string>
 </resources>
