@@ -32,4 +32,12 @@ object Routes {
     const val MATERIAL_EDIT = "project/{$ARG_PROJECT_ID}/material_edit?$ARG_ID={$ARG_ID}"
     fun materialEdit(projectId: Long, id: Long = 0) = "project/$projectId/material_edit?$ARG_ID=$id"
     const val MATERIAL_TYPES = "material_types"
+
+    // Suppliers (shared by all projects; projectId = where we came from, 0 = none)
+    const val SUPPLIERS = "suppliers?$ARG_PROJECT_ID={$ARG_PROJECT_ID}"
+    fun suppliers(projectId: Long = 0) = "suppliers?$ARG_PROJECT_ID=$projectId"
+    const val SUPPLIER_EDIT = "supplier_edit?$ARG_ID={$ARG_ID}"
+    fun supplierEdit(id: Long = 0) = "supplier_edit?$ARG_ID=$id"
+    const val SUPPLIER_KHATA = "supplier/{$ARG_ID}?$ARG_PROJECT_ID={$ARG_PROJECT_ID}"
+    fun supplierKhata(id: Long, projectId: Long = 0) = "supplier/$id?$ARG_PROJECT_ID=$projectId"
 }

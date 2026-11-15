@@ -18,6 +18,9 @@ import com.diary.construction.ui.projects.ProjectEditScreen
 import com.diary.construction.ui.projects.ProjectsScreen
 import com.diary.construction.ui.role.RoleSelectScreen
 import com.diary.construction.ui.stages.StageEditScreen
+import com.diary.construction.ui.suppliers.SupplierEditScreen
+import com.diary.construction.ui.suppliers.SupplierKhataScreen
+import com.diary.construction.ui.suppliers.SuppliersScreen
 import com.diary.construction.ui.stages.StagesScreen
 
 @Composable
@@ -80,6 +83,35 @@ fun AppNavHost(
         composable(Routes.MATERIAL_TYPES) {
             MaterialTypesScreen(onBack = { navController.popBackStack() })
         }
+        composable(Routes.SUPPLIERS, arguments = listOf(idArg(Routes.ARG_PROJECT_ID))) { entry ->
+            val projectId = entry.arguments?.getLong(Routes.ARG_PROJECT_ID) ?: 0L
+            SuppliersScreen(
+                onBack = { navController.popBackStack() },
+                onOpen = { navController.navigate(Routes.supplierKhata(it, projectId)) },
+                onAdd = { navController.navigate(Routes.supplierEdit()) },
+            )
+        }
+        composable(Routes.SUPPLIER_EDIT, arguments = listOf(idArg())) {
+            SupplierEditScreen(
+                onBack = { navController.popBackStack() },
+                onSaved = { id, isNew ->
+                    if (isNew) {
+                        navController.navigate(Routes.supplierKhata(id)) { popUpTo(Routes.SUPPLIER_EDIT) { inclusive = true } }
+                    } else {
+                        navController.popBackStack()
+                    }
+                },
+                onDeleted = {
+                    if (!navController.popBackStack(Routes.SUPPLIERS, inclusive = false)) navController.popBackStack()
+                },
+            )
+        }
+        composable(Routes.SUPPLIER_KHATA, arguments = listOf(longArg(Routes.ARG_ID), idArg(Routes.ARG_PROJECT_ID))) {
+            SupplierKhataScreen(
+                onBack = { navController.popBackStack() },
+                onEdit = { navController.navigate(Routes.supplierEdit(it)) },
+            )
+        }
         composable(Routes.EXPENSES) { PlaceholderScreen(R.string.tab_expenses) }
         composable(Routes.REPORTS) { PlaceholderScreen(R.string.tab_reports) }
         composable(Routes.SETTINGS) { PlaceholderScreen(R.string.tab_settings) }
@@ -100,6 +132,7 @@ internal fun NavHostController.openSection(projectId: Long, section: ProjectSect
     val route: String? = when (section) {
         ProjectSection.STAGES -> Routes.stages(projectId)
         ProjectSection.MATERIAL -> Routes.material(projectId)
+        ProjectSection.SUPPLIERS -> Routes.suppliers(projectId)
         else -> null
     }
     if (route != null) navigate(route)
