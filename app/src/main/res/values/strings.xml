@@ -259,4 +259,23 @@
     <string name="payment_history">Payments</string>
     <string name="no_payments">No payments yet</string>
     <string name="no_attendance">No attendance yet</string>
+    <string name="contractor_khata_owner">Thekedar khata</string>
+    <string name="contractor_khata_thekedar">Sub-contractor khata</string>
+    <string name="contractor_add_owner">Add thekedar</string>
+    <string name="contractor_add_thekedar">Add sub-contractor</string>
+    <string name="contractor_edit">Edit agreement</string>
+    <string name="contractor_empty">No agreements yet</string>
+    <string name="contractor_empty_message_owner">Add the thekedar you gave the work to, with the agreed amount.</string>
+    <string name="contractor_empty_message_thekedar">Add sub-contractors (electric, plumbing, tiles ...) with their agreed amount.</string>
+    <string name="agreed_amount">Agreed amount</string>
+    <string name="work_done">Work done</string>
+    <string name="due_now">Due now (work done − paid)</string>
+    <string name="remaining_on_contract">Left on agreement</string>
+    <string name="paid_ahead">Paid %1$s more than the work done so far.</string>
+    <string name="contractor_work">Work given (e.g. grey structure)</string>
+    <string name="agreement">Agreement</string>
+    <string name="rate_per_sqft">Rate per sq ft</string>
+    <string name="covered_area">Covered area</string>
+    <string name="work_done_value">Work done: %1$d%%</string>
+    <string name="contractor_delete_message">Delete this agreement with all its payments?</string>
 </resources>

@@ -9,6 +9,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.diary.construction.R
 import com.diary.construction.ui.components.PlaceholderScreen
+import com.diary.construction.ui.contractor.ContractorDetailScreen
+import com.diary.construction.ui.contractor.ContractorEditScreen
+import com.diary.construction.ui.contractor.ContractorsScreen
 import com.diary.construction.ui.dashboard.ProjectDashboardScreen
 import com.diary.construction.ui.dashboard.ProjectSection
 import com.diary.construction.ui.labour.LabourDetailScreen
@@ -134,6 +137,32 @@ fun AppNavHost(
                 onEdit = { projectId, id -> navController.navigate(Routes.labourEdit(projectId, id)) },
             )
         }
+        composable(Routes.CONTRACTORS, arguments = listOf(longArg(Routes.ARG_PROJECT_ID))) {
+            ContractorsScreen(
+                onBack = { navController.popBackStack() },
+                onAdd = { navController.navigate(Routes.contractorEdit(it)) },
+                onOpen = { navController.navigate(Routes.contractorDetail(it)) },
+            )
+        }
+        composable(Routes.CONTRACTOR_EDIT, arguments = listOf(longArg(Routes.ARG_PROJECT_ID), idArg())) {
+            ContractorEditScreen(
+                onBack = { navController.popBackStack() },
+                onSaved = { id, isNew ->
+                    if (isNew) {
+                        navController.navigate(Routes.contractorDetail(id)) { popUpTo(Routes.CONTRACTOR_EDIT) { inclusive = true } }
+                    } else {
+                        navController.popBackStack()
+                    }
+                },
+                onDeleted = { navController.popBackStack(Routes.CONTRACTORS, inclusive = false) },
+            )
+        }
+        composable(Routes.CONTRACTOR_DETAIL, arguments = listOf(longArg(Routes.ARG_ID))) {
+            ContractorDetailScreen(
+                onBack = { navController.popBackStack() },
+                onEdit = { projectId, id -> navController.navigate(Routes.contractorEdit(projectId, id)) },
+            )
+        }
         composable(Routes.EXPENSES) { PlaceholderScreen(R.string.tab_expenses) }
         composable(Routes.REPORTS) { PlaceholderScreen(R.string.tab_reports) }
         composable(Routes.SETTINGS) { PlaceholderScreen(R.string.tab_settings) }
@@ -156,6 +185,7 @@ internal fun NavHostController.openSection(projectId: Long, section: ProjectSect
         ProjectSection.MATERIAL -> Routes.material(projectId)
         ProjectSection.SUPPLIERS -> Routes.suppliers(projectId)
         ProjectSection.LABOUR -> Routes.labour(projectId)
+        ProjectSection.CONTRACTOR -> Routes.contractors(projectId)
         else -> null
     }
     if (route != null) navigate(route)
