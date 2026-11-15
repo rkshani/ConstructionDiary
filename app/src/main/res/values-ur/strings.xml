@@ -350,4 +350,22 @@
     <string name="reminder_stage_title">مرحلے کی آخری تاریخ</string>
     <string name="reminder_overdue">تاخیر!</string>
     <string name="settings_tools">ٹولز</string>
+    <string name="calc_wall">اینٹوں کی دیوار</string>
+    <string name="calc_slab">چھت کا لینٹر</string>
+    <string name="calc_length">لمبائی</string>
+    <string name="calc_height">اونچائی</string>
+    <string name="calc_width">چوڑائی</string>
+    <string name="calc_thickness">دیوار کی موٹائی</string>
+    <string name="calc_openings">دروازے اور کھڑکیوں کا رقبہ (کم کریں)</string>
+    <string name="calc_mortar">مسالہ (سیمنٹ : ریت)</string>
+    <string name="calc_wastage">ضیاع</string>
+    <string name="calc_you_need">آپ کو تقریباً چاہیے</string>
+    <string name="calc_volume">حجم</string>
+    <string name="calc_slab_thickness">لینٹر کی موٹائی</string>
+    <string name="calc_mix">کنکریٹ مکس (سیمنٹ : ریت : بجری)</string>
+    <string name="calc_steel_rate">سریا فی مکعب فٹ (کلو)</string>
+    <string name="calc_steel_hint">عام گھر کی چھت کے لیے تقریباً 2.2 کلو</string>
+    <string name="calc_disclaimer">یہ خریداری اور منصوبہ بندی کے لیے اندازاً حساب ہے۔ حتمی ڈیزائن کے لیے انجینئر سے پوچھیں۔</string>
+    <string name="unit_ft">فٹ</string>
+    <string name="unit_inch">انچ</string>
 </resources>

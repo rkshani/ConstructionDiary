@@ -7,6 +7,7 @@ import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.diary.construction.ui.calculator.CalculatorScreen
 import com.diary.construction.ui.contractor.ContractorDetailScreen
 import com.diary.construction.ui.contractor.ContractorEditScreen
 import com.diary.construction.ui.contractor.ContractorsScreen
@@ -194,8 +195,12 @@ fun AppNavHost(
             ReportsScreen(onBack = { navController.popBackStack() }, onAddProject = { navController.navigate(Routes.projectEdit()) })
         }
         composable(Routes.SETTINGS) {
-            SettingsScreen(onOpenReminders = { navController.navigate(Routes.REMINDERS) })
+            SettingsScreen(
+                onOpenReminders = { navController.navigate(Routes.REMINDERS) },
+                onOpenCalculator = { navController.navigate(Routes.CALCULATOR) },
+            )
         }
+        composable(Routes.CALCULATOR) { CalculatorScreen(onBack = { navController.popBackStack() }) }
         composable(Routes.REMINDERS) { RemindersScreen(onBack = { navController.popBackStack() }) }
     }
 }
@@ -211,7 +216,7 @@ internal fun longArg(name: String) = navArgument(name) { type = NavType.LongType
 
 /** Opens a part of a project from the dashboard. */
 internal fun NavHostController.openSection(projectId: Long, section: ProjectSection) {
-    val route: String? = when (section) {
+    val route: String = when (section) {
         ProjectSection.STAGES -> Routes.stages(projectId)
         ProjectSection.MATERIAL -> Routes.material(projectId)
         ProjectSection.SUPPLIERS -> Routes.suppliers(projectId)
@@ -220,7 +225,7 @@ internal fun NavHostController.openSection(projectId: Long, section: ProjectSect
         ProjectSection.EXPENSES -> Routes.projectExpenses(projectId)
         ProjectSection.PHOTOS -> Routes.photos(projectId)
         ProjectSection.REPORTS -> Routes.projectReports(projectId)
-        else -> null
+        ProjectSection.CALCULATOR -> Routes.CALCULATOR
     }
-    if (route != null) navigate(route)
+    navigate(route)
 }
