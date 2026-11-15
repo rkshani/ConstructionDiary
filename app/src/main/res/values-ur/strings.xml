@@ -17,4 +17,11 @@
     <string name="action_share">شیئر کریں</string>
     <string name="action_search">تلاش</string>
     <string name="coming_soon">یہ حصہ جلد آ رہا ہے۔</string>
+    <string name="role_title">آپ کون ہیں؟</string>
+    <string name="role_subtitle">ایپ آپ کے لیے صحیح الفاظ اور حساب دکھائے گی۔</string>
+    <string name="role_owner">میں مالک ہوں</string>
+    <string name="role_owner_detail">میں اپنا گھر بنا رہا ہوں۔ مجھے اپنا بجٹ اور ادائیگیاں دیکھنی ہیں۔</string>
+    <string name="role_thekedar">میں ٹھیکیدار ہوں</string>
+    <string name="role_thekedar_detail">میں کلائنٹس کے لیے تعمیر کرتا ہوں۔ مجھے سائٹس، مزدور، میٹیریل اور منافع دیکھنا ہے۔</string>
+    <string name="role_change_later">آپ اسے بعد میں ترتیبات میں بدل سکتے ہیں۔</string>
 </resources>

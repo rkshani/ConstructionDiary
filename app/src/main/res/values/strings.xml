@@ -17,4 +17,11 @@
     <string name="action_share">Share</string>
     <string name="action_search">Search</string>
     <string name="coming_soon">This section is coming soon.</string>
+    <string name="role_title">Who are you?</string>
+    <string name="role_subtitle">The app shows the right words and numbers for you.</string>
+    <string name="role_owner">I am the Owner</string>
+    <string name="role_owner_detail">I am building my own house. I want to track my budget and what I pay.</string>
+    <string name="role_thekedar">I am a Thekedar</string>
+    <string name="role_thekedar_detail">I build for clients. I want to track sites, labour, material and profit.</string>
+    <string name="role_change_later">You can change this later in Settings.</string>
 </resources>

@@ -8,6 +8,9 @@ object Routes {
     const val REPORTS = "reports"
     const val SETTINGS = "settings"
 
+    // First launch
+    const val ROLE = "role"
+
     const val ARG_PROJECT_ID = "projectId"
     const val ARG_ID = "id"
 }
