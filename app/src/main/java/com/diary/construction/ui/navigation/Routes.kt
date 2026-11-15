@@ -62,4 +62,8 @@ object Routes {
     fun projectExpenses(projectId: Long) = "project/$projectId/expenses"
     const val EXPENSE_EDIT = "project/{$ARG_PROJECT_ID}/expense_edit?$ARG_ID={$ARG_ID}"
     fun expenseEdit(projectId: Long, id: Long = 0) = "project/$projectId/expense_edit?$ARG_ID=$id"
+
+    // Site photos
+    const val PHOTOS = "project/{$ARG_PROJECT_ID}/photos"
+    fun photos(projectId: Long) = "project/$projectId/photos"
 }
