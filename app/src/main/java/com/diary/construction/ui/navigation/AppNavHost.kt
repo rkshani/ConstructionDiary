@@ -11,6 +11,9 @@ import com.diary.construction.R
 import com.diary.construction.ui.components.PlaceholderScreen
 import com.diary.construction.ui.dashboard.ProjectDashboardScreen
 import com.diary.construction.ui.dashboard.ProjectSection
+import com.diary.construction.ui.labour.LabourDetailScreen
+import com.diary.construction.ui.labour.LabourEditScreen
+import com.diary.construction.ui.labour.LabourScreen
 import com.diary.construction.ui.material.MaterialEntryEditScreen
 import com.diary.construction.ui.material.MaterialScreen
 import com.diary.construction.ui.material.MaterialTypesScreen
@@ -112,6 +115,25 @@ fun AppNavHost(
                 onEdit = { navController.navigate(Routes.supplierEdit(it)) },
             )
         }
+        composable(Routes.LABOUR, arguments = listOf(longArg(Routes.ARG_PROJECT_ID))) {
+            LabourScreen(
+                onBack = { navController.popBackStack() },
+                onAddLabour = { navController.navigate(Routes.labourEdit(it)) },
+                onOpenLabour = { navController.navigate(Routes.labourDetail(it)) },
+            )
+        }
+        composable(Routes.LABOUR_EDIT, arguments = listOf(longArg(Routes.ARG_PROJECT_ID), idArg())) {
+            LabourEditScreen(
+                onBack = { navController.popBackStack() },
+                onDeleted = { navController.popBackStack(Routes.LABOUR, inclusive = false) },
+            )
+        }
+        composable(Routes.LABOUR_DETAIL, arguments = listOf(longArg(Routes.ARG_ID))) {
+            LabourDetailScreen(
+                onBack = { navController.popBackStack() },
+                onEdit = { projectId, id -> navController.navigate(Routes.labourEdit(projectId, id)) },
+            )
+        }
         composable(Routes.EXPENSES) { PlaceholderScreen(R.string.tab_expenses) }
         composable(Routes.REPORTS) { PlaceholderScreen(R.string.tab_reports) }
         composable(Routes.SETTINGS) { PlaceholderScreen(R.string.tab_settings) }
@@ -133,6 +155,7 @@ internal fun NavHostController.openSection(projectId: Long, section: ProjectSect
         ProjectSection.STAGES -> Routes.stages(projectId)
         ProjectSection.MATERIAL -> Routes.material(projectId)
         ProjectSection.SUPPLIERS -> Routes.suppliers(projectId)
+        ProjectSection.LABOUR -> Routes.labour(projectId)
         else -> null
     }
     if (route != null) navigate(route)
