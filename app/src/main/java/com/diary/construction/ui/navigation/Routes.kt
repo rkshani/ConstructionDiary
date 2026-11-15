@@ -13,4 +13,8 @@ object Routes {
 
     const val ARG_PROJECT_ID = "projectId"
     const val ARG_ID = "id"
+
+    // Projects
+    const val PROJECT_EDIT = "project_edit?$ARG_ID={$ARG_ID}"
+    fun projectEdit(id: Long = 0) = "project_edit?$ARG_ID=$id"
 }
