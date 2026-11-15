@@ -14,6 +14,8 @@ import com.diary.construction.ui.contractor.ContractorEditScreen
 import com.diary.construction.ui.contractor.ContractorsScreen
 import com.diary.construction.ui.dashboard.ProjectDashboardScreen
 import com.diary.construction.ui.dashboard.ProjectSection
+import com.diary.construction.ui.expenses.ExpenseEditScreen
+import com.diary.construction.ui.expenses.ExpensesScreen
 import com.diary.construction.ui.labour.LabourDetailScreen
 import com.diary.construction.ui.labour.LabourEditScreen
 import com.diary.construction.ui.labour.LabourScreen
@@ -163,7 +165,23 @@ fun AppNavHost(
                 onEdit = { projectId, id -> navController.navigate(Routes.contractorEdit(projectId, id)) },
             )
         }
-        composable(Routes.EXPENSES) { PlaceholderScreen(R.string.tab_expenses) }
+        composable(Routes.EXPENSES) {
+            ExpensesScreen(
+                onBack = null,
+                onEdit = { projectId, id -> navController.navigate(Routes.expenseEdit(projectId, id)) },
+                onAddProject = { navController.navigate(Routes.projectEdit()) },
+            )
+        }
+        composable(Routes.PROJECT_EXPENSES, arguments = listOf(longArg(Routes.ARG_PROJECT_ID))) {
+            ExpensesScreen(
+                onBack = { navController.popBackStack() },
+                onEdit = { projectId, id -> navController.navigate(Routes.expenseEdit(projectId, id)) },
+                onAddProject = { navController.navigate(Routes.projectEdit()) },
+            )
+        }
+        composable(Routes.EXPENSE_EDIT, arguments = listOf(longArg(Routes.ARG_PROJECT_ID), idArg())) {
+            ExpenseEditScreen(onBack = { navController.popBackStack() })
+        }
         composable(Routes.REPORTS) { PlaceholderScreen(R.string.tab_reports) }
         composable(Routes.SETTINGS) { PlaceholderScreen(R.string.tab_settings) }
     }
@@ -186,6 +204,7 @@ internal fun NavHostController.openSection(projectId: Long, section: ProjectSect
         ProjectSection.SUPPLIERS -> Routes.suppliers(projectId)
         ProjectSection.LABOUR -> Routes.labour(projectId)
         ProjectSection.CONTRACTOR -> Routes.contractors(projectId)
+        ProjectSection.EXPENSES -> Routes.projectExpenses(projectId)
         else -> null
     }
     if (route != null) navigate(route)

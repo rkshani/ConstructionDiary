@@ -278,4 +278,11 @@
     <string name="covered_area">کورڈ ایریا</string>
     <string name="work_done_value">ہو چکا کام: %1$d%%</string>
     <string name="contractor_delete_message">یہ معاہدہ اس کی تمام ادائیگیوں سمیت حذف کریں؟</string>
+    <string name="expense_add">خرچ شامل کریں</string>
+    <string name="expense_edit">خرچ میں ترمیم</string>
+    <string name="expenses_empty">ابھی کوئی دیگر خرچ نہیں</string>
+    <string name="no_project_title">ابھی کوئی پروجیکٹ نہیں</string>
+    <string name="no_project_message">پہلے ایک پروجیکٹ بنائیں۔ پھر آپ اخراجات شامل اور رپورٹس دیکھ سکیں گے۔</string>
+    <string name="category">قسم</string>
+    <string name="expense_detail">تفصیل (کس لیے تھا؟)</string>
 </resources>
