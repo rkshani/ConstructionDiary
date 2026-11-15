@@ -150,4 +150,19 @@
     <string name="total">کل</string>
     <string name="work_progress">کام کی پیش رفت</string>
     <string name="stages_done_of">%2$d میں سے %1$d مراحل مکمل</string>
+    <string name="stage_add">مرحلہ شامل کریں</string>
+    <string name="stage_edit">مرحلے میں ترمیم</string>
+    <string name="stages_empty">ابھی کوئی مرحلہ نہیں</string>
+    <string name="stages_add_defaults">عام مراحل شامل کریں</string>
+    <string name="stage_budget">مرحلے کا بجٹ</string>
+    <string name="stage_late">آخری تاریخ گزر گئی</string>
+    <string name="stage_type">مرحلہ</string>
+    <string name="stage_name">مرحلے کا نام</string>
+    <string name="stage_name_optional">اپنا نام (اختیاری)</string>
+    <string name="stage_start">شروع کی تاریخ</string>
+    <string name="stage_end">آخری تاریخ</string>
+    <string name="error_end_before_start">آخری تاریخ شروع کی تاریخ سے پہلے نہیں ہو سکتی۔</string>
+    <string name="stage_delete_message">یہ مرحلہ حذف کریں؟ اس سے جڑی اندراجات رہیں گی مگر بغیر مرحلے کے۔</string>
+    <string name="move_up">اوپر کریں</string>
+    <string name="move_down">نیچے کریں</string>
 </resources>
