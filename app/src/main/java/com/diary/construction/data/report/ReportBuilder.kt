@@ -83,8 +83,8 @@ class ReportBuilder @Inject constructor(
         return when {
             from == null && to == null -> s(R.string.range_all)
             from == null -> s(R.string.range_until, Dates.format(to!!))
-            to == null -> s(R.string.range_from, Dates.format(from!!))
-            else -> "${Dates.format(from!!)} – ${Dates.format(to!!)}"
+            to == null -> s(R.string.range_from, Dates.format(from))
+            else -> "${Dates.format(from)} – ${Dates.format(to)}"
         }
     }
 

@@ -73,9 +73,11 @@ fun LockScreen(
     val activity = LocalContext.current as? FragmentActivity
     val title = stringResource(R.string.lock_title)
     val cancel = stringResource(R.string.lock_use_pin)
-    val useBiometric = biometricEnabled && activity != null && canUseBiometric(activity)
+    // Set only when the fingerprint / face button should be offered.
+    val bioActivity = activity?.takeIf { biometricEnabled && canUseBiometric(it) }
+    val useBiometric = bioActivity != null
     val askBiometric = {
-        if (useBiometric && activity != null) showBiometricPrompt(activity, title, cancel, onUnlocked)
+        if (bioActivity != null) showBiometricPrompt(bioActivity, title, cancel, onUnlocked)
     }
     LaunchedEffect(Unit) { askBiometric() }
     // Back on the lock screen leaves the app instead of going to the screen below.
