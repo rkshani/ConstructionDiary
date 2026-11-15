@@ -9,6 +9,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.outlined.Backup
 import androidx.compose.material.icons.outlined.Calculate
 import androidx.compose.material.icons.outlined.Notifications
 import androidx.compose.material3.Icon
@@ -29,6 +30,7 @@ import com.diary.construction.ui.components.SectionHeader
 fun SettingsScreen(
     onOpenReminders: () -> Unit,
     onOpenCalculator: () -> Unit,
+    onOpenBackup: () -> Unit,
 ) {
     Scaffold(topBar = { AppTopBar(stringResource(R.string.tab_settings)) }) { padding ->
         Column(
@@ -42,6 +44,7 @@ fun SettingsScreen(
             SectionHeader(stringResource(R.string.settings_tools))
             NavRow(Icons.Outlined.Notifications, stringResource(R.string.reminders), onOpenReminders)
             NavRow(Icons.Outlined.Calculate, stringResource(R.string.section_calculator), onOpenCalculator)
+            NavRow(Icons.Outlined.Backup, stringResource(R.string.backup_title), onOpenBackup)
         }
     }
 }

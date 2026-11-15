@@ -11,6 +11,7 @@ object Routes {
     // Settings
     const val REMINDERS = "reminders"
     const val CALCULATOR = "calculator"
+    const val BACKUP = "backup"
 
     // First launch
     const val ROLE = "role"

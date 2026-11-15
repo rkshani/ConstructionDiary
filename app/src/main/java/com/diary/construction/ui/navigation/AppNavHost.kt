@@ -7,6 +7,7 @@ import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.diary.construction.ui.backup.BackupScreen
 import com.diary.construction.ui.calculator.CalculatorScreen
 import com.diary.construction.ui.contractor.ContractorDetailScreen
 import com.diary.construction.ui.contractor.ContractorEditScreen
@@ -198,9 +199,11 @@ fun AppNavHost(
             SettingsScreen(
                 onOpenReminders = { navController.navigate(Routes.REMINDERS) },
                 onOpenCalculator = { navController.navigate(Routes.CALCULATOR) },
+                onOpenBackup = { navController.navigate(Routes.BACKUP) },
             )
         }
         composable(Routes.CALCULATOR) { CalculatorScreen(onBack = { navController.popBackStack() }) }
+        composable(Routes.BACKUP) { BackupScreen(onBack = { navController.popBackStack() }) }
         composable(Routes.REMINDERS) { RemindersScreen(onBack = { navController.popBackStack() }) }
     }
 }
