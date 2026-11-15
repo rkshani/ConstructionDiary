@@ -259,4 +259,23 @@
     <string name="payment_history">ادائیگیاں</string>
     <string name="no_payments">ابھی کوئی ادائیگی نہیں</string>
     <string name="no_attendance">ابھی کوئی حاضری نہیں</string>
+    <string name="contractor_khata_owner">ٹھیکیدار کھاتہ</string>
+    <string name="contractor_khata_thekedar">سب کنٹریکٹر کھاتہ</string>
+    <string name="contractor_add_owner">ٹھیکیدار شامل کریں</string>
+    <string name="contractor_add_thekedar">سب کنٹریکٹر شامل کریں</string>
+    <string name="contractor_edit">معاہدے میں ترمیم</string>
+    <string name="contractor_empty">ابھی کوئی معاہدہ نہیں</string>
+    <string name="contractor_empty_message_owner">وہ ٹھیکیدار شامل کریں جسے آپ نے کام دیا، طے شدہ رقم کے ساتھ۔</string>
+    <string name="contractor_empty_message_thekedar">سب کنٹریکٹرز (بجلی، پلمبنگ، ٹائلز ...) ان کی طے شدہ رقم کے ساتھ شامل کریں۔</string>
+    <string name="agreed_amount">طے شدہ رقم</string>
+    <string name="work_done">ہو چکا کام</string>
+    <string name="due_now">ابھی واجب (ہوا کام − ادا)</string>
+    <string name="remaining_on_contract">معاہدے میں باقی</string>
+    <string name="paid_ahead">اب تک کے کام سے %1$s زیادہ ادا کر دیا۔</string>
+    <string name="contractor_work">دیا گیا کام (مثلاً گرے اسٹرکچر)</string>
+    <string name="agreement">معاہدہ</string>
+    <string name="rate_per_sqft">ریٹ فی مربع فٹ</string>
+    <string name="covered_area">کورڈ ایریا</string>
+    <string name="work_done_value">ہو چکا کام: %1$d%%</string>
+    <string name="contractor_delete_message">یہ معاہدہ اس کی تمام ادائیگیوں سمیت حذف کریں؟</string>
 </resources>
