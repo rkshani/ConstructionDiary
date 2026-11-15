@@ -8,6 +8,9 @@ object Routes {
     const val REPORTS = "reports"
     const val SETTINGS = "settings"
 
+    // Settings
+    const val REMINDERS = "reminders"
+
     // First launch
     const val ROLE = "role"
 

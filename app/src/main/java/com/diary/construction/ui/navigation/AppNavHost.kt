@@ -7,8 +7,6 @@ import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.diary.construction.R
-import com.diary.construction.ui.components.PlaceholderScreen
 import com.diary.construction.ui.contractor.ContractorDetailScreen
 import com.diary.construction.ui.contractor.ContractorEditScreen
 import com.diary.construction.ui.contractor.ContractorsScreen
@@ -25,8 +23,10 @@ import com.diary.construction.ui.material.MaterialTypesScreen
 import com.diary.construction.ui.photos.PhotosScreen
 import com.diary.construction.ui.projects.ProjectEditScreen
 import com.diary.construction.ui.projects.ProjectsScreen
+import com.diary.construction.ui.reminders.RemindersScreen
 import com.diary.construction.ui.reports.ReportsScreen
 import com.diary.construction.ui.role.RoleSelectScreen
+import com.diary.construction.ui.settings.SettingsScreen
 import com.diary.construction.ui.stages.StageEditScreen
 import com.diary.construction.ui.suppliers.SupplierEditScreen
 import com.diary.construction.ui.suppliers.SupplierKhataScreen
@@ -193,7 +193,10 @@ fun AppNavHost(
         composable(Routes.PROJECT_REPORTS, arguments = listOf(longArg(Routes.ARG_PROJECT_ID))) {
             ReportsScreen(onBack = { navController.popBackStack() }, onAddProject = { navController.navigate(Routes.projectEdit()) })
         }
-        composable(Routes.SETTINGS) { PlaceholderScreen(R.string.tab_settings) }
+        composable(Routes.SETTINGS) {
+            SettingsScreen(onOpenReminders = { navController.navigate(Routes.REMINDERS) })
+        }
+        composable(Routes.REMINDERS) { RemindersScreen(onBack = { navController.popBackStack() }) }
     }
 }
 

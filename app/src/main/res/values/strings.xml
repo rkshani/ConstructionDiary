@@ -334,4 +334,20 @@
     <string name="export_xlsx_full">Whole project as Excel (all reports)</string>
     <string name="export_done">File saved</string>
     <string name="export_failed">Could not save the file</string>
+    <string name="reminders">Reminders</string>
+    <string name="reminders_intro">The app checks once a day (about 9 AM) and shows a notification. Everything stays on your phone.</string>
+    <string name="reminder_labour">Labour weekly payment</string>
+    <string name="reminder_labour_desc">On pay day, tells you how much wages are due on each site.</string>
+    <string name="pay_day">Pay day</string>
+    <string name="reminder_supplier">Supplier payment due</string>
+    <string name="reminder_supplier_desc">When a supplier\'s next payment date comes and money is still due.</string>
+    <string name="reminder_stage">Stage deadlines</string>
+    <string name="reminder_stage_desc">Two days before a stage\'s end date, and when it is late.</string>
+    <string name="reminder_channel">Reminders</string>
+    <string name="reminder_channel_desc">Payment and deadline reminders</string>
+    <string name="reminder_labour_title">Labour wages due this week</string>
+    <string name="reminder_supplier_title">Supplier payment due</string>
+    <string name="reminder_stage_title">Stage deadline</string>
+    <string name="reminder_overdue">late!</string>
+    <string name="settings_tools">Tools</string>
 </resources>
