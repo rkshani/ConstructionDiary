@@ -368,4 +368,16 @@
     <string name="calc_disclaimer">یہ خریداری اور منصوبہ بندی کے لیے اندازاً حساب ہے۔ حتمی ڈیزائن کے لیے انجینئر سے پوچھیں۔</string>
     <string name="unit_ft">فٹ</string>
     <string name="unit_inch">انچ</string>
+    <string name="backup_title">بیک اپ اور ریسٹور</string>
+    <string name="backup_create">بیک اپ بنائیں</string>
+    <string name="backup_create_desc">تمام پروجیکٹس، اندراجات اور تصاویر ایک .zip فائل میں محفوظ ہوں گی۔ اسے یو ایس بی، ایس ڈی کارڈ میں رکھیں یا خود کو بھیج دیں۔</string>
+    <string name="backup_restore">بیک اپ واپس لائیں</string>
+    <string name="backup_restore_desc">اس ایپ کی بنائی ہوئی بیک اپ .zip چنیں۔ ایپ کا موجودہ تمام ڈیٹا بدل جائے گا۔</string>
+    <string name="backup_restore_confirm">موجودہ تمام ڈیٹا اور تصاویر بیک اپ سے بدل جائیں گی۔ ایپ دوبارہ شروع ہوگی۔ جاری رکھیں؟</string>
+    <string name="backup_restore_now">ابھی ریسٹور کریں</string>
+    <string name="backup_tip">مشورہ: ہر ہفتے بیک اپ بنائیں۔ ایپ میں انٹرنیٹ نہیں، اس لیے آپ کا ڈیٹا صرف اسی فون پر ہے۔</string>
+    <string name="backup_done">بیک اپ محفوظ ہو گیا۔</string>
+    <string name="backup_restored">بیک اپ واپس آ گیا۔</string>
+    <string name="backup_not_valid">یہ فائل کنسٹرکشن ڈائری کا بیک اپ نہیں ہے۔</string>
+    <string name="backup_failed">کچھ غلط ہو گیا: %1$s</string>
 </resources>

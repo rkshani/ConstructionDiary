@@ -368,4 +368,16 @@
     <string name="calc_disclaimer">These are rough thumb-rule numbers for planning and buying. Ask your engineer for the final design.</string>
     <string name="unit_ft">ft</string>
     <string name="unit_inch">inch</string>
+    <string name="backup_title">Backup and restore</string>
+    <string name="backup_create">Create backup</string>
+    <string name="backup_create_desc">Saves all projects, entries and photos in one .zip file. Keep it on a USB, SD card or send it to yourself.</string>
+    <string name="backup_restore">Restore backup</string>
+    <string name="backup_restore_desc">Pick a backup .zip made by this app. All data now in the app will be replaced.</string>
+    <string name="backup_restore_confirm">All current data and photos will be replaced by the backup. The app will restart. Continue?</string>
+    <string name="backup_restore_now">Restore now</string>
+    <string name="backup_tip">Tip: make a backup every week. The app has no internet, so your data is only on this phone.</string>
+    <string name="backup_done">Backup saved.</string>
+    <string name="backup_restored">Backup restored.</string>
+    <string name="backup_not_valid">This file is not a Construction Diary backup.</string>
+    <string name="backup_failed">Something went wrong: %1$s</string>
 </resources>
