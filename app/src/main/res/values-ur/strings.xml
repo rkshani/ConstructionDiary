@@ -328,4 +328,10 @@
     <string name="r_opening">پچھلا بقایا</string>
     <string name="r_paid_all_time">ادا کیا (کل)</string>
     <string name="r_nothing">دکھانے کو کچھ نہیں</string>
+    <string name="export">ایکسپورٹ</string>
+    <string name="export_csv">یہ رپورٹ CSV میں</string>
+    <string name="export_xlsx">یہ رپورٹ ایکسل (XLSX) میں</string>
+    <string name="export_xlsx_full">پورا پروجیکٹ ایکسل میں (تمام رپورٹس)</string>
+    <string name="export_done">فائل محفوظ ہو گئی</string>
+    <string name="export_failed">فائل محفوظ نہیں ہو سکی</string>
 </resources>

@@ -1,9 +1,11 @@
 package com.diary.construction.ui.reports
 
+import android.net.Uri
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.diary.construction.core.util.Dates
+import com.diary.construction.data.export.ReportExporter
 import com.diary.construction.data.report.PdfReportWriter
 import com.diary.construction.data.report.ReportBuilder
 import com.diary.construction.domain.model.DateRange
@@ -56,6 +58,7 @@ class ReportsViewModel @Inject constructor(
     selected: ObserveSelectedProjectUseCase,
     private val builder: ReportBuilder,
     private val pdf: PdfReportWriter,
+    private val exporter: ReportExporter,
     private val settings: SettingsRepository,
 ) : ViewModel() {
     private val routeProjectId: Long = savedState.get<Long>(Routes.ARG_PROJECT_ID) ?: 0L
@@ -74,6 +77,26 @@ class ReportsViewModel @Inject constructor(
 
     fun selectProject(project: Project) {
         viewModelScope.launch { settings.setSelectedProject(project.id) }
+    }
+
+    /** Suggested file name for exports, e.g. "My_House_summary_20261115_1030.xlsx". */
+    fun exportName(ext: String, full: Boolean = false): String {
+        val name = selection.value?.project?.name.orEmpty().replace(Regex("[^A-Za-z0-9]+"), "_").trim('_').ifBlank { "project" }
+        val kind = if (full) "all" else type.value.name.lowercase()
+        return "${name}_${kind}_${Dates.fileStamp()}.$ext"
+    }
+
+    suspend fun exportCsv(uri: Uri): Boolean = exporter.writeCsv(uri, listOfNotNull(report.value))
+
+    /** [full] = every report of the project in one workbook (one sheet each). */
+    suspend fun exportXlsx(uri: Uri, full: Boolean): Boolean {
+        val reports = if (full) {
+            val projectId = selection.value?.project?.id ?: return false
+            ReportType.entries.mapNotNull { builder.build(projectId, it, range.value.toRange()) }
+        } else {
+            listOfNotNull(report.value)
+        }
+        return reports.isNotEmpty() && exporter.writeXlsx(uri, reports)
     }
 
     /** Builds the PDF for the current report. */

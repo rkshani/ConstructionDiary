@@ -1,6 +1,8 @@
 package com.diary.construction.ui.reports
 
 import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -19,8 +21,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.Chat
 import androidx.compose.material.icons.outlined.PictureAsPdf
 import androidx.compose.material.icons.outlined.Share
+import androidx.compose.material.icons.outlined.TableChart
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -48,7 +53,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.diary.construction.R
 import com.diary.construction.core.util.ShareFiles
 import com.diary.construction.data.report.ReportBuilder.Companion.titleRes
-import com.diary.construction.domain.model.Report
 import com.diary.construction.domain.model.ReportSection
 import com.diary.construction.domain.model.ReportType
 import com.diary.construction.ui.components.AppTopBar
@@ -64,7 +68,6 @@ fun ReportsScreen(
     onBack: (() -> Unit)?,
     onAddProject: () -> Unit,
     viewModel: ReportsViewModel = hiltViewModel(),
-    extraActions: @Composable (report: Report) -> Unit = {},
 ) {
     val selection by viewModel.selection.collectAsStateWithLifecycle()
     val type by viewModel.type.collectAsStateWithLifecycle()
@@ -114,7 +117,7 @@ fun ReportsScreen(
                         OutlinedButton(onClick = { withPdf { ShareFiles.open(context, it, "application/pdf") } }, enabled = !busy) {
                             Icon(Icons.Outlined.PictureAsPdf, contentDescription = stringResource(R.string.open_pdf))
                         }
-                        extraActions(r)
+                        ExportMenu(viewModel)
                         if (busy) CircularProgressIndicator(Modifier.width(24.dp))
                     }
                 }
@@ -238,4 +241,56 @@ private fun RangePreset.labelRes(): Int = when (this) {
     RangePreset.LAST_MONTH -> R.string.range_last_month
     RangePreset.LAST_30_DAYS -> R.string.range_last_30
     RangePreset.CUSTOM -> R.string.range_custom
+}
+
+private const val XLSX_MIME = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+
+/** Export button: this report as CSV / Excel, or the whole project as one Excel file. */
+@Composable
+private fun ExportMenu(viewModel: ReportsViewModel) {
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    var open by remember { mutableStateOf(false) }
+    var fullExport by remember { mutableStateOf(false) }
+    val done = stringResource(R.string.export_done)
+    val failed = stringResource(R.string.export_failed)
+    val toast = { ok: Boolean -> Toast.makeText(context, if (ok) done else failed, Toast.LENGTH_SHORT).show() }
+
+    val csvLauncher = rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument("text/csv")) { uri ->
+        if (uri != null) scope.launch { toast(viewModel.exportCsv(uri)) }
+    }
+    val xlsxLauncher = rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument(XLSX_MIME)) { uri ->
+        if (uri != null) scope.launch { toast(viewModel.exportXlsx(uri, fullExport)) }
+    }
+
+    Box {
+        OutlinedButton(onClick = { open = true }) {
+            Icon(Icons.Outlined.TableChart, contentDescription = stringResource(R.string.export))
+        }
+        DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+            DropdownMenuItem(
+                text = { Text(stringResource(R.string.export_csv)) },
+                onClick = {
+                    open = false
+                    runCatching { csvLauncher.launch(viewModel.exportName("csv")) }
+                },
+            )
+            DropdownMenuItem(
+                text = { Text(stringResource(R.string.export_xlsx)) },
+                onClick = {
+                    open = false
+                    fullExport = false
+                    runCatching { xlsxLauncher.launch(viewModel.exportName("xlsx")) }
+                },
+            )
+            DropdownMenuItem(
+                text = { Text(stringResource(R.string.export_xlsx_full)) },
+                onClick = {
+                    open = false
+                    fullExport = true
+                    runCatching { xlsxLauncher.launch(viewModel.exportName("xlsx", full = true)) }
+                },
+            )
+        }
+    }
 }
