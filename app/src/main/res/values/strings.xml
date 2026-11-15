@@ -328,4 +328,10 @@
     <string name="r_opening">Opening balance</string>
     <string name="r_paid_all_time">Paid (all time)</string>
     <string name="r_nothing">Nothing to show</string>
+    <string name="export">Export</string>
+    <string name="export_csv">This report as CSV</string>
+    <string name="export_xlsx">This report as Excel (XLSX)</string>
+    <string name="export_xlsx_full">Whole project as Excel (all reports)</string>
+    <string name="export_done">File saved</string>
+    <string name="export_failed">Could not save the file</string>
 </resources>
