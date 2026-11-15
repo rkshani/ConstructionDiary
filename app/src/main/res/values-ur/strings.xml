@@ -334,4 +334,20 @@
     <string name="export_xlsx_full">پورا پروجیکٹ ایکسل میں (تمام رپورٹس)</string>
     <string name="export_done">فائل محفوظ ہو گئی</string>
     <string name="export_failed">فائل محفوظ نہیں ہو سکی</string>
+    <string name="reminders">یاد دہانیاں</string>
+    <string name="reminders_intro">ایپ دن میں ایک بار (تقریباً صبح 9 بجے) چیک کر کے نوٹیفکیشن دکھاتی ہے۔ سب کچھ آپ کے فون پر ہی رہتا ہے۔</string>
+    <string name="reminder_labour">مزدوری کی ہفتہ وار ادائیگی</string>
+    <string name="reminder_labour_desc">ادائیگی کے دن بتاتی ہے کہ ہر سائٹ پر کتنی مزدوری باقی ہے۔</string>
+    <string name="pay_day">ادائیگی کا دن</string>
+    <string name="reminder_supplier">سپلائر کی ادائیگی</string>
+    <string name="reminder_supplier_desc">جب سپلائر کی اگلی ادائیگی کی تاریخ آئے اور رقم باقی ہو۔</string>
+    <string name="reminder_stage">مراحل کی آخری تاریخ</string>
+    <string name="reminder_stage_desc">مرحلے کی آخری تاریخ سے دو دن پہلے، اور تاخیر ہونے پر۔</string>
+    <string name="reminder_channel">یاد دہانیاں</string>
+    <string name="reminder_channel_desc">ادائیگی اور آخری تاریخ کی یاد دہانیاں</string>
+    <string name="reminder_labour_title">اس ہفتے کی مزدوری باقی ہے</string>
+    <string name="reminder_supplier_title">سپلائر کی ادائیگی باقی ہے</string>
+    <string name="reminder_stage_title">مرحلے کی آخری تاریخ</string>
+    <string name="reminder_overdue">تاخیر!</string>
+    <string name="settings_tools">ٹولز</string>
 </resources>
