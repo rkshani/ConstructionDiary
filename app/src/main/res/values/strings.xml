@@ -278,4 +278,11 @@
     <string name="covered_area">Covered area</string>
     <string name="work_done_value">Work done: %1$d%%</string>
     <string name="contractor_delete_message">Delete this agreement with all its payments?</string>
+    <string name="expense_add">Add expense</string>
+    <string name="expense_edit">Edit expense</string>
+    <string name="expenses_empty">No other expenses yet</string>
+    <string name="no_project_title">No project yet</string>
+    <string name="no_project_message">Make a project first. Then you can add expenses and see reports.</string>
+    <string name="category">Category</string>
+    <string name="expense_detail">Details (what was it for?)</string>
 </resources>
