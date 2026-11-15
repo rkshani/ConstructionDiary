@@ -9,6 +9,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.diary.construction.R
 import com.diary.construction.ui.components.PlaceholderScreen
+import com.diary.construction.ui.dashboard.ProjectDashboardScreen
+import com.diary.construction.ui.dashboard.ProjectSection
 import com.diary.construction.ui.projects.ProjectEditScreen
 import com.diary.construction.ui.projects.ProjectsScreen
 import com.diary.construction.ui.role.RoleSelectScreen
@@ -27,15 +29,28 @@ fun AppNavHost(
         }
         composable(Routes.PROJECTS) {
             ProjectsScreen(
-                onOpenProject = { navController.navigate(Routes.projectEdit(it)) },
+                onOpenProject = { navController.navigate(Routes.project(it)) },
                 onAddProject = { navController.navigate(Routes.projectEdit()) },
             )
         }
         composable(Routes.PROJECT_EDIT, arguments = listOf(idArg())) {
             ProjectEditScreen(
                 onBack = { navController.popBackStack() },
-                onSaved = { _, _ -> navController.popBackStack() },
+                onSaved = { id, isNew ->
+                    if (isNew) {
+                        navController.navigate(Routes.project(id)) { popUpTo(Routes.PROJECT_EDIT) { inclusive = true } }
+                    } else {
+                        navController.popBackStack()
+                    }
+                },
                 onDeleted = { navController.popBackStack(Routes.PROJECTS, inclusive = false) },
+            )
+        }
+        composable(Routes.PROJECT, arguments = listOf(longArg(Routes.ARG_PROJECT_ID))) {
+            ProjectDashboardScreen(
+                onBack = { navController.popBackStack() },
+                onEdit = { navController.navigate(Routes.projectEdit(it)) },
+                onOpenSection = { projectId, section -> navController.openSection(projectId, section) },
             )
         }
         composable(Routes.EXPENSES) { PlaceholderScreen(R.string.tab_expenses) }
@@ -52,3 +67,11 @@ internal fun idArg(name: String = Routes.ARG_ID) = navArgument(name) {
 
 /** Required Long argument. */
 internal fun longArg(name: String) = navArgument(name) { type = NavType.LongType }
+
+/** Opens a part of a project from the dashboard. */
+internal fun NavHostController.openSection(projectId: Long, section: ProjectSection) {
+    val route: String? = when (section) {
+        else -> null
+    }
+    if (route != null) navigate(route)
+}
