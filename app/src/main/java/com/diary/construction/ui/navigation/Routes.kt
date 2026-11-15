@@ -14,6 +14,7 @@ object Routes {
     const val BACKUP = "backup"
 
     // First launch
+    const val ONBOARDING = "onboarding"
     const val ROLE = "role"
 
     const val ARG_PROJECT_ID = "projectId"

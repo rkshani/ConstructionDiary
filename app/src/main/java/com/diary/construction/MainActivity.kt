@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -14,6 +15,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.diary.construction.data.settings.LocaleStore
 import com.diary.construction.domain.model.ThemeMode
 import com.diary.construction.ui.components.LocalAppSettings
+import com.diary.construction.ui.lock.LockScreen
 import com.diary.construction.ui.navigation.ConstructionAppUi
 import com.diary.construction.ui.navigation.Routes
 import com.diary.construction.ui.theme.ConstructionTheme
@@ -29,6 +31,16 @@ class MainActivity : FragmentActivity() {
         super.attachBaseContext(LocaleStore.wrap(newBase))
     }
 
+    override fun onStart() {
+        super.onStart()
+        viewModel.onStart()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        viewModel.onStop(isChangingConfigurations)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -42,9 +54,26 @@ class MainActivity : FragmentActivity() {
             }
             ConstructionTheme(darkTheme = dark) {
                 CompositionLocalProvider(LocalAppSettings provides loaded) {
-                    // Decided once per launch so picking a role does not rebuild the graph.
-                    val start = remember { if (loaded.role == null) Routes.ROLE else Routes.PROJECTS }
-                    ConstructionAppUi(startDestination = start)
+                    // Decided once per launch so finishing the first-launch screens does not rebuild the graph.
+                    val start = remember {
+                        when {
+                            !loaded.onboardingDone -> Routes.ONBOARDING
+                            loaded.role == null -> Routes.ROLE
+                            else -> Routes.PROJECTS
+                        }
+                    }
+                    val unlocked by viewModel.unlocked.collectAsStateWithLifecycle()
+                    Box {
+                        // The app stays underneath the lock so picker / camera results are not lost.
+                        ConstructionAppUi(startDestination = start)
+                        if (loaded.lockEnabled && !unlocked) {
+                            LockScreen(
+                                pinHash = loaded.pinHash,
+                                biometricEnabled = loaded.biometricEnabled,
+                                onUnlocked = viewModel::onUnlocked,
+                            )
+                        }
+                    }
                 }
             }
         }

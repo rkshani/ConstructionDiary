@@ -380,4 +380,37 @@
     <string name="backup_restored">بیک اپ واپس آ گیا۔</string>
     <string name="backup_not_valid">یہ فائل کنسٹرکشن ڈائری کا بیک اپ نہیں ہے۔</string>
     <string name="backup_failed">کچھ غلط ہو گیا: %1$s</string>
+    <string name="settings_profile">میں ہوں</string>
+    <string name="settings_appearance">زبان اور انداز</string>
+    <string name="settings_language">زبان</string>
+    <string name="settings_theme">تھیم</string>
+    <string name="settings_money_units">رقم اور یونٹس</string>
+    <string name="settings_currency">کرنسی کا نشان</string>
+    <string name="settings_no_symbol">کوئی نشان نہیں</string>
+    <string name="settings_area_unit">رقبے کا عام یونٹ</string>
+    <string name="settings_area_note">1 مرلہ = 225 مربع فٹ، 1 کنال = 20 مرلے۔</string>
+    <string name="settings_security">حفاظت</string>
+    <string name="settings_app_lock">ایپ لاک (پن)</string>
+    <string name="settings_app_lock_desc">ایپ کھلنے پر 4 ہندسوں کا پن مانگے۔</string>
+    <string name="settings_biometric">فنگر پرنٹ / چہرے سے کھولیں</string>
+    <string name="settings_change_pin">پن تبدیل کریں</string>
+    <string name="settings_about">ایپ کے بارے میں</string>
+    <string name="settings_version">ورژن %1$s</string>
+    <string name="settings_offline_note">مکمل آف لائن کام کرتی ہے۔ آپ کا ڈیٹا اس فون سے باہر نہیں جاتا جب تک آپ خود شیئر یا بیک اپ نہ کریں۔</string>
+    <string name="pin_new">نیا پن بنائیں</string>
+    <string name="pin_new_hint">4 ہندسے جو آپ کو یاد رہیں</string>
+    <string name="pin_confirm">پن دوبارہ لکھیں</string>
+    <string name="lock_title">پن لکھیں</string>
+    <string name="lock_wrong_pin">غلط پن، دوبارہ کوشش کریں</string>
+    <string name="lock_use_pin">پن استعمال کریں</string>
+    <string name="lock_fingerprint">فنگر پرنٹ استعمال کریں</string>
+    <string name="onb1_title">آپ کے گھر کا ہر روپیہ ایک جگہ</string>
+    <string name="onb1_text">میٹیریل، مزدوری، ٹھیکیدار اور دیگر خرچ ساتھ ساتھ لکھیں۔</string>
+    <string name="onb2_title">اپنا بجٹ اور واجبات جانیں</string>
+    <string name="onb2_text">بجٹ کے مقابلے میں خرچ، سپلائرز اور مزدوروں کے واجبات دیکھیں اور پی ڈی ایف رپورٹ واٹس ایپ پر بھیجیں۔</string>
+    <string name="onb3_title">انٹرنیٹ کے بغیر چلتی ہے</string>
+    <string name="onb3_text">سب کچھ آپ کے فون پر رہتا ہے۔ حفاظت کے لیے بیک اپ فائل بنائیں۔</string>
+    <string name="onb_skip">چھوڑیں</string>
+    <string name="onb_next">آگے</string>
+    <string name="onb_start">شروع کریں</string>
 </resources>
