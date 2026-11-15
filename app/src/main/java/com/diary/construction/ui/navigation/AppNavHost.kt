@@ -14,6 +14,8 @@ import com.diary.construction.ui.dashboard.ProjectSection
 import com.diary.construction.ui.projects.ProjectEditScreen
 import com.diary.construction.ui.projects.ProjectsScreen
 import com.diary.construction.ui.role.RoleSelectScreen
+import com.diary.construction.ui.stages.StageEditScreen
+import com.diary.construction.ui.stages.StagesScreen
 
 @Composable
 fun AppNavHost(
@@ -53,6 +55,15 @@ fun AppNavHost(
                 onOpenSection = { projectId, section -> navController.openSection(projectId, section) },
             )
         }
+        composable(Routes.STAGES, arguments = listOf(longArg(Routes.ARG_PROJECT_ID))) {
+            StagesScreen(
+                onBack = { navController.popBackStack() },
+                onEdit = { projectId, id -> navController.navigate(Routes.stageEdit(projectId, id)) },
+            )
+        }
+        composable(Routes.STAGE_EDIT, arguments = listOf(longArg(Routes.ARG_PROJECT_ID), idArg())) {
+            StageEditScreen(onBack = { navController.popBackStack() })
+        }
         composable(Routes.EXPENSES) { PlaceholderScreen(R.string.tab_expenses) }
         composable(Routes.REPORTS) { PlaceholderScreen(R.string.tab_reports) }
         composable(Routes.SETTINGS) { PlaceholderScreen(R.string.tab_settings) }
@@ -71,6 +82,7 @@ internal fun longArg(name: String) = navArgument(name) { type = NavType.LongType
 /** Opens a part of a project from the dashboard. */
 internal fun NavHostController.openSection(projectId: Long, section: ProjectSection) {
     val route: String? = when (section) {
+        ProjectSection.STAGES -> Routes.stages(projectId)
         else -> null
     }
     if (route != null) navigate(route)

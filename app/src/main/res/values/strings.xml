@@ -150,4 +150,19 @@
     <string name="total">Total</string>
     <string name="work_progress">Work progress</string>
     <string name="stages_done_of">%1$d of %2$d stages done</string>
+    <string name="stage_add">Add stage</string>
+    <string name="stage_edit">Edit stage</string>
+    <string name="stages_empty">No stages yet</string>
+    <string name="stages_add_defaults">Add standard stages</string>
+    <string name="stage_budget">Stage budget</string>
+    <string name="stage_late">End date has passed</string>
+    <string name="stage_type">Stage</string>
+    <string name="stage_name">Stage name</string>
+    <string name="stage_name_optional">Own name (optional)</string>
+    <string name="stage_start">Start date</string>
+    <string name="stage_end">End date (deadline)</string>
+    <string name="error_end_before_start">End date cannot be before the start date.</string>
+    <string name="stage_delete_message">Delete this stage? Entries linked to it stay, but without a stage.</string>
+    <string name="move_up">Move up</string>
+    <string name="move_down">Move down</string>
 </resources>
