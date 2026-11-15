@@ -350,4 +350,22 @@
     <string name="reminder_stage_title">Stage deadline</string>
     <string name="reminder_overdue">late!</string>
     <string name="settings_tools">Tools</string>
+    <string name="calc_wall">Brick wall</string>
+    <string name="calc_slab">Roof slab (lintel)</string>
+    <string name="calc_length">Length</string>
+    <string name="calc_height">Height</string>
+    <string name="calc_width">Width</string>
+    <string name="calc_thickness">Wall thickness</string>
+    <string name="calc_openings">Doors and windows area (minus)</string>
+    <string name="calc_mortar">Mortar (cement : sand)</string>
+    <string name="calc_wastage">Wastage</string>
+    <string name="calc_you_need">You will need about</string>
+    <string name="calc_volume">Volume</string>
+    <string name="calc_slab_thickness">Slab thickness</string>
+    <string name="calc_mix">Concrete mix (cement : sand : bajri)</string>
+    <string name="calc_steel_rate">Sariya per cft (kg)</string>
+    <string name="calc_steel_hint">About 2.2 kg for a normal house roof</string>
+    <string name="calc_disclaimer">These are rough thumb-rule numbers for planning and buying. Ask your engineer for the final design.</string>
+    <string name="unit_ft">ft</string>
+    <string name="unit_inch">inch</string>
 </resources>

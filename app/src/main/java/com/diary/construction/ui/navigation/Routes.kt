@@ -10,6 +10,7 @@ object Routes {
 
     // Settings
     const val REMINDERS = "reminders"
+    const val CALCULATOR = "calculator"
 
     // First launch
     const val ROLE = "role"
