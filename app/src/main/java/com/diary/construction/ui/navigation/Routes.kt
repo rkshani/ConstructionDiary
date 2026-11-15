@@ -66,4 +66,8 @@ object Routes {
     // Site photos
     const val PHOTOS = "project/{$ARG_PROJECT_ID}/photos"
     fun photos(projectId: Long) = "project/$projectId/photos"
+
+    // Reports of one project (the Reports tab uses REPORTS)
+    const val PROJECT_REPORTS = "project/{$ARG_PROJECT_ID}/reports"
+    fun projectReports(projectId: Long) = "project/$projectId/reports"
 }
