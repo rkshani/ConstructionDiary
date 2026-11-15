@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.diary.construction.data.settings.LocaleStore
@@ -42,6 +43,8 @@ class MainActivity : FragmentActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Keep the splash until the settings (theme, language, first launch, lock) are read.
+        installSplashScreen().setKeepOnScreenCondition { viewModel.settings.value == null }
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {

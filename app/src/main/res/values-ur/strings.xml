@@ -10,13 +10,9 @@
     <string name="action_cancel">منسوخ</string>
     <string name="action_delete">حذف کریں</string>
     <string name="action_edit">ترمیم</string>
-    <string name="action_add">شامل کریں</string>
     <string name="action_ok">ٹھیک ہے</string>
     <string name="action_clear">صاف کریں</string>
     <string name="action_close">بند کریں</string>
-    <string name="action_share">شیئر کریں</string>
-    <string name="action_search">تلاش</string>
-    <string name="coming_soon">یہ حصہ جلد آ رہا ہے۔</string>
     <string name="role_title">آپ کون ہیں؟</string>
     <string name="role_subtitle">ایپ آپ کے لیے صحیح الفاظ اور حساب دکھائے گی۔</string>
     <string name="role_owner">میں مالک ہوں</string>

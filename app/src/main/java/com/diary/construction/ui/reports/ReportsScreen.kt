@@ -96,7 +96,7 @@ fun ReportsScreen(
             if (r != null) {
                 Surface(tonalElevation = 3.dp) {
                     Row(
-                        Modifier.fillMaxWidth().navigationBarsPadding().padding(12.dp),
+                        Modifier.fillMaxWidth().navigationBarsPadding().horizontalScroll(rememberScrollState()).padding(12.dp),
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
