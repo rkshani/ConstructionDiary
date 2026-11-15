@@ -285,4 +285,10 @@
     <string name="no_project_message">Make a project first. Then you can add expenses and see reports.</string>
     <string name="category">Category</string>
     <string name="expense_detail">Details (what was it for?)</string>
+    <string name="photos_empty">No site photos yet</string>
+    <string name="photos_empty_message">Take a photo of the work every day to see the progress over time.</string>
+    <string name="photos_count">%1$d photos</string>
+    <string name="photo_details">Photo details</string>
+    <string name="photo_caption">Caption (what was done)</string>
+    <string name="photo_delete_message">Delete this photo?</string>
 </resources>

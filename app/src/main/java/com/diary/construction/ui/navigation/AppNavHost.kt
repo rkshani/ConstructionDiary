@@ -22,6 +22,7 @@ import com.diary.construction.ui.labour.LabourScreen
 import com.diary.construction.ui.material.MaterialEntryEditScreen
 import com.diary.construction.ui.material.MaterialScreen
 import com.diary.construction.ui.material.MaterialTypesScreen
+import com.diary.construction.ui.photos.PhotosScreen
 import com.diary.construction.ui.projects.ProjectEditScreen
 import com.diary.construction.ui.projects.ProjectsScreen
 import com.diary.construction.ui.role.RoleSelectScreen
@@ -179,6 +180,9 @@ fun AppNavHost(
                 onAddProject = { navController.navigate(Routes.projectEdit()) },
             )
         }
+        composable(Routes.PHOTOS, arguments = listOf(longArg(Routes.ARG_PROJECT_ID))) {
+            PhotosScreen(onBack = { navController.popBackStack() })
+        }
         composable(Routes.EXPENSE_EDIT, arguments = listOf(longArg(Routes.ARG_PROJECT_ID), idArg())) {
             ExpenseEditScreen(onBack = { navController.popBackStack() })
         }
@@ -205,6 +209,7 @@ internal fun NavHostController.openSection(projectId: Long, section: ProjectSect
         ProjectSection.LABOUR -> Routes.labour(projectId)
         ProjectSection.CONTRACTOR -> Routes.contractors(projectId)
         ProjectSection.EXPENSES -> Routes.projectExpenses(projectId)
+        ProjectSection.PHOTOS -> Routes.photos(projectId)
         else -> null
     }
     if (route != null) navigate(route)

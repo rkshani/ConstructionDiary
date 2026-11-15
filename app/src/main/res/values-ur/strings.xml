@@ -285,4 +285,10 @@
     <string name="no_project_message">پہلے ایک پروجیکٹ بنائیں۔ پھر آپ اخراجات شامل اور رپورٹس دیکھ سکیں گے۔</string>
     <string name="category">قسم</string>
     <string name="expense_detail">تفصیل (کس لیے تھا؟)</string>
+    <string name="photos_empty">ابھی سائٹ کی کوئی تصویر نہیں</string>
+    <string name="photos_empty_message">ہر روز کام کی تصویر لیں تاکہ وقت کے ساتھ پیش رفت نظر آئے۔</string>
+    <string name="photos_count">%1$d تصاویر</string>
+    <string name="photo_details">تصویر کی تفصیل</string>
+    <string name="photo_caption">عنوان (کیا کام ہوا)</string>
+    <string name="photo_delete_message">یہ تصویر حذف کریں؟</string>
 </resources>
