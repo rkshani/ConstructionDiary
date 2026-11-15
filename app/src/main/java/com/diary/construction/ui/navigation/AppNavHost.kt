@@ -22,6 +22,7 @@ import com.diary.construction.ui.labour.LabourScreen
 import com.diary.construction.ui.material.MaterialEntryEditScreen
 import com.diary.construction.ui.material.MaterialScreen
 import com.diary.construction.ui.material.MaterialTypesScreen
+import com.diary.construction.ui.onboarding.OnboardingScreen
 import com.diary.construction.ui.photos.PhotosScreen
 import com.diary.construction.ui.projects.ProjectEditScreen
 import com.diary.construction.ui.projects.ProjectsScreen
@@ -42,6 +43,13 @@ fun AppNavHost(
     modifier: Modifier = Modifier,
 ) {
     NavHost(navController = navController, startDestination = startDestination, modifier = modifier) {
+        composable(Routes.ONBOARDING) {
+            OnboardingScreen(onDone = { needsRole ->
+                navController.navigate(if (needsRole) Routes.ROLE else Routes.PROJECTS) {
+                    popUpTo(Routes.ONBOARDING) { inclusive = true }
+                }
+            })
+        }
         composable(Routes.ROLE) {
             RoleSelectScreen(onDone = {
                 navController.navigate(Routes.PROJECTS) { popUpTo(Routes.ROLE) { inclusive = true } }
@@ -200,6 +208,8 @@ fun AppNavHost(
                 onOpenReminders = { navController.navigate(Routes.REMINDERS) },
                 onOpenCalculator = { navController.navigate(Routes.CALCULATOR) },
                 onOpenBackup = { navController.navigate(Routes.BACKUP) },
+                onOpenSuppliers = { navController.navigate(Routes.suppliers()) },
+                onOpenMaterials = { navController.navigate(Routes.MATERIAL_TYPES) },
             )
         }
         composable(Routes.CALCULATOR) { CalculatorScreen(onBack = { navController.popBackStack() }) }

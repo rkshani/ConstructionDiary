@@ -380,4 +380,37 @@
     <string name="backup_restored">Backup restored.</string>
     <string name="backup_not_valid">This file is not a Construction Diary backup.</string>
     <string name="backup_failed">Something went wrong: %1$s</string>
+    <string name="settings_profile">I am</string>
+    <string name="settings_appearance">Language and look</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_money_units">Money and units</string>
+    <string name="settings_currency">Currency sign</string>
+    <string name="settings_no_symbol">No sign</string>
+    <string name="settings_area_unit">Default area unit</string>
+    <string name="settings_area_note">1 marla = 225 sq ft, 1 kanal = 20 marla.</string>
+    <string name="settings_security">Security</string>
+    <string name="settings_app_lock">App lock (PIN)</string>
+    <string name="settings_app_lock_desc">Ask for a 4 digit PIN when the app opens.</string>
+    <string name="settings_biometric">Unlock with fingerprint / face</string>
+    <string name="settings_change_pin">Change PIN</string>
+    <string name="settings_about">About</string>
+    <string name="settings_version">Version %1$s</string>
+    <string name="settings_offline_note">Works fully offline. Your data never leaves this phone unless you share or back it up.</string>
+    <string name="pin_new">Set a new PIN</string>
+    <string name="pin_new_hint">4 digits you will remember</string>
+    <string name="pin_confirm">Type the PIN again</string>
+    <string name="lock_title">Enter PIN</string>
+    <string name="lock_wrong_pin">Wrong PIN, try again</string>
+    <string name="lock_use_pin">Use PIN</string>
+    <string name="lock_fingerprint">Use fingerprint</string>
+    <string name="onb1_title">Every rupee of your house in one place</string>
+    <string name="onb1_text">Write down material, labour, thekedar and other costs as they happen.</string>
+    <string name="onb2_title">Know your budget and dues</string>
+    <string name="onb2_text">See spent vs budget, what you owe suppliers and labour, and share PDF reports on WhatsApp.</string>
+    <string name="onb3_title">Works without internet</string>
+    <string name="onb3_text">Everything stays on your phone. Make a backup file to keep it safe.</string>
+    <string name="onb_skip">Skip</string>
+    <string name="onb_next">Next</string>
+    <string name="onb_start">Start</string>
 </resources>
