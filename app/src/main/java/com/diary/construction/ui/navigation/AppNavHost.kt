@@ -11,6 +11,9 @@ import com.diary.construction.R
 import com.diary.construction.ui.components.PlaceholderScreen
 import com.diary.construction.ui.dashboard.ProjectDashboardScreen
 import com.diary.construction.ui.dashboard.ProjectSection
+import com.diary.construction.ui.material.MaterialEntryEditScreen
+import com.diary.construction.ui.material.MaterialScreen
+import com.diary.construction.ui.material.MaterialTypesScreen
 import com.diary.construction.ui.projects.ProjectEditScreen
 import com.diary.construction.ui.projects.ProjectsScreen
 import com.diary.construction.ui.role.RoleSelectScreen
@@ -64,6 +67,19 @@ fun AppNavHost(
         composable(Routes.STAGE_EDIT, arguments = listOf(longArg(Routes.ARG_PROJECT_ID), idArg())) {
             StageEditScreen(onBack = { navController.popBackStack() })
         }
+        composable(Routes.MATERIAL, arguments = listOf(longArg(Routes.ARG_PROJECT_ID))) {
+            MaterialScreen(
+                onBack = { navController.popBackStack() },
+                onEditEntry = { projectId, id -> navController.navigate(Routes.materialEdit(projectId, id)) },
+                onManageTypes = { navController.navigate(Routes.MATERIAL_TYPES) },
+            )
+        }
+        composable(Routes.MATERIAL_EDIT, arguments = listOf(longArg(Routes.ARG_PROJECT_ID), idArg())) {
+            MaterialEntryEditScreen(onBack = { navController.popBackStack() })
+        }
+        composable(Routes.MATERIAL_TYPES) {
+            MaterialTypesScreen(onBack = { navController.popBackStack() })
+        }
         composable(Routes.EXPENSES) { PlaceholderScreen(R.string.tab_expenses) }
         composable(Routes.REPORTS) { PlaceholderScreen(R.string.tab_reports) }
         composable(Routes.SETTINGS) { PlaceholderScreen(R.string.tab_settings) }
@@ -83,6 +99,7 @@ internal fun longArg(name: String) = navArgument(name) { type = NavType.LongType
 internal fun NavHostController.openSection(projectId: Long, section: ProjectSection) {
     val route: String? = when (section) {
         ProjectSection.STAGES -> Routes.stages(projectId)
+        ProjectSection.MATERIAL -> Routes.material(projectId)
         else -> null
     }
     if (route != null) navigate(route)
