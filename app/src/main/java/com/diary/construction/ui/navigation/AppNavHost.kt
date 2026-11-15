@@ -25,6 +25,7 @@ import com.diary.construction.ui.material.MaterialTypesScreen
 import com.diary.construction.ui.photos.PhotosScreen
 import com.diary.construction.ui.projects.ProjectEditScreen
 import com.diary.construction.ui.projects.ProjectsScreen
+import com.diary.construction.ui.reports.ReportsScreen
 import com.diary.construction.ui.role.RoleSelectScreen
 import com.diary.construction.ui.stages.StageEditScreen
 import com.diary.construction.ui.suppliers.SupplierEditScreen
@@ -186,7 +187,12 @@ fun AppNavHost(
         composable(Routes.EXPENSE_EDIT, arguments = listOf(longArg(Routes.ARG_PROJECT_ID), idArg())) {
             ExpenseEditScreen(onBack = { navController.popBackStack() })
         }
-        composable(Routes.REPORTS) { PlaceholderScreen(R.string.tab_reports) }
+        composable(Routes.REPORTS) {
+            ReportsScreen(onBack = null, onAddProject = { navController.navigate(Routes.projectEdit()) })
+        }
+        composable(Routes.PROJECT_REPORTS, arguments = listOf(longArg(Routes.ARG_PROJECT_ID))) {
+            ReportsScreen(onBack = { navController.popBackStack() }, onAddProject = { navController.navigate(Routes.projectEdit()) })
+        }
         composable(Routes.SETTINGS) { PlaceholderScreen(R.string.tab_settings) }
     }
 }
@@ -210,6 +216,7 @@ internal fun NavHostController.openSection(projectId: Long, section: ProjectSect
         ProjectSection.CONTRACTOR -> Routes.contractors(projectId)
         ProjectSection.EXPENSES -> Routes.projectExpenses(projectId)
         ProjectSection.PHOTOS -> Routes.photos(projectId)
+        ProjectSection.REPORTS -> Routes.projectReports(projectId)
         else -> null
     }
     if (route != null) navigate(route)
