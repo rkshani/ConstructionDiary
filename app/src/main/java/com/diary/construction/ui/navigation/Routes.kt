@@ -40,4 +40,12 @@ object Routes {
     fun supplierEdit(id: Long = 0) = "supplier_edit?$ARG_ID=$id"
     const val SUPPLIER_KHATA = "supplier/{$ARG_ID}?$ARG_PROJECT_ID={$ARG_PROJECT_ID}"
     fun supplierKhata(id: Long, projectId: Long = 0) = "supplier/$id?$ARG_PROJECT_ID=$projectId"
+
+    // Labour
+    const val LABOUR = "project/{$ARG_PROJECT_ID}/labour"
+    fun labour(projectId: Long) = "project/$projectId/labour"
+    const val LABOUR_EDIT = "project/{$ARG_PROJECT_ID}/labour_edit?$ARG_ID={$ARG_ID}"
+    fun labourEdit(projectId: Long, id: Long = 0) = "project/$projectId/labour_edit?$ARG_ID=$id"
+    const val LABOUR_DETAIL = "labour/{$ARG_ID}"
+    fun labourDetail(id: Long) = "labour/$id"
 }
